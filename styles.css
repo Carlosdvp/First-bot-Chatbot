@@ -1,0 +1,45 @@
+/*********************
+	Global Styles
+**********************/
+
+body {
+	background-color: lightslategray;
+	color: ghostwhite;
+}
+
+.content {
+	text-align: center;
+	margin-top: 5em;
+}
+
+.title {
+	font-size: 2em;
+	padding: 1em;
+	border: 2px solid ghostwhite;
+	width: 60vw;
+	margin: 0 auto;
+}
+
+.input {
+	margin-top: 3em;
+}
+
+.input input {
+	background-color: lightgray;
+	padding: 1em;
+	border-radius: 12px;	
+	border: none;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#bot-question {
+	margin-top: 2em;
+	padding: 1em;
+	text-align: center;
+	font-size: 1.8em;
+}
+
+#user-input {
+
+}
