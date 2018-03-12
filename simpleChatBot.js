@@ -8,48 +8,48 @@ var questions = [
 	`It was nice talking to you.`
 ];
 
-
-
 var num = 0;
 
 // here we grab the elements we need to work with
 var botQuestion = document.querySelector('#bot-question'),	
 		answer = document.querySelector('#user-input');
 
-// First we set botQuestion to the 1st item in the array
+// First we set botQuestion to the 1st item in the questions array
 botQuestion.innerHTML = questions[0];
 
-// this is our main method
+// This is the Bot's main Method
 function showResponse() {
 
 	var input = answer.value;
+
 // Refactor #1 - place all bot responses in their own array
 	var responses = [
 		`Hi ${input}, nice to meet you.`,
 		`${input} is an awesome city.`,
 		`So you were born in ${2017 - input}.`,
-		`Oh boy! ${input} is my favorite dish.`
+		`Oh boy! ${input} is my favorite.`
 	];
-
+// Refactor #2 - remove repeated code and place into one function
+	function addOne() {
+		++num;
+		setTimeout(changeQuestion, 2000);
+	}
+// here we update the question with each new response
 	if(answer.value === '') {
 		console.log('oh no!');
 	} else {
 		if(num === 0) {
 			botQuestion.innerHTML = responses[0];
-			++num;
-			setTimeout(changeQuestion, 2000);
+			addOne();
 		} else if (num === 1) {
 			botQuestion.innerHTML = responses[1];
-			++num;
-			setTimeout(changeQuestion, 2000);
+			addOne();
 		} else if (num === 2) {
 			botQuestion.innerHTML = responses[2];
-			++num;
-			setTimeout(changeQuestion, 2000);
+			addOne();
 		} else if (num === 3) {
 			botQuestion.innerHTML = responses[3];
-			++num;
-			setTimeout(changeQuestion, 2000);
+			addOne();
 		}
 	}
 };
@@ -66,15 +66,7 @@ function changeQuestion() {
 	}
 };
 
-
 // we add the event listener for the enter key
-
-// -- with jquery: --
-// $(document).on('keypress', function(e) {
-// 	if (e.which == 13) {showResponse();} 
-// });
-
-// vanila JS w/the new specs and fallbacks
 document.addEventListener('keyup', function(event) {
 	if (event.defaultPrevented) {
 		return;
