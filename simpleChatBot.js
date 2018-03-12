@@ -8,10 +8,13 @@ var questions = [
 	`It was nice talking to you.`
 ];
 
+
+
 var num = 0;
 
 // here we grab the elements we need to work with
-var botQuestion = document.querySelector('#bot-question'),	answer = document.querySelector('#user-input');
+var botQuestion = document.querySelector('#bot-question'),	
+		answer = document.querySelector('#user-input');
 
 // First we set botQuestion to the 1st item in the array
 botQuestion.innerHTML = questions[0];
@@ -20,24 +23,31 @@ botQuestion.innerHTML = questions[0];
 function showResponse() {
 
 	var input = answer.value;
+// Refactor #1 - place all bot responses in their own array
+	var responses = [
+		`Hi ${input}, nice to meet you.`,
+		`${input} is an awesome city.`,
+		`So you were born in ${2017 - input}.`,
+		`Oh boy! ${input} is my favorite dish.`
+	];
 
 	if(answer.value === '') {
 		console.log('oh no!');
 	} else {
 		if(num === 0) {
-			botQuestion.innerHTML = `Hi ${input}, nice to meet you.`;
+			botQuestion.innerHTML = responses[0];
 			++num;
 			setTimeout(changeQuestion, 2000);
 		} else if (num === 1) {
-			botQuestion.innerHTML = `${input} is an awesome city.`;
+			botQuestion.innerHTML = responses[1];
 			++num;
 			setTimeout(changeQuestion, 2000);
 		} else if (num === 2) {
-			botQuestion.innerHTML = `So you were born in ${2017 - input}.`;
+			botQuestion.innerHTML = responses[2];
 			++num;
 			setTimeout(changeQuestion, 2000);
 		} else if (num === 3) {
-			botQuestion.innerHTML = `Oh boy! ${input} is my favorite dish.`;
+			botQuestion.innerHTML = responses[3];
 			++num;
 			setTimeout(changeQuestion, 2000);
 		}
@@ -76,5 +86,3 @@ document.addEventListener('keyup', function(event) {
 		showResponse();
 	}
 });
-
-
