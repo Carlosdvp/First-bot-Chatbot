@@ -40,6 +40,17 @@ body {
 	font-size: 1.8em;
 }
 
-#user-input {
 
+
+/*************************************
+Robot Image Styles
+**************************************/
+
+.images {
+	text-align: center;
+	padding: 3em 0 0;
+}
+
+#robot-image {
+	height: 30vh;
 }
